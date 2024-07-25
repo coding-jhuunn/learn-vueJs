@@ -16,10 +16,10 @@
         <div class="product-container">
           <div class="product-image">
             <!-- //create attribute binding -->
-            <img v-bind:src="image" alt="" />
+            <img :class="{ 'out-of-stock-img': !inStock }" v-bind:src="image" />
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1>{{ productTitle }}</h1>
             <!-- you can use this v-show- to toggle -->
             <!-- <p v-show="inStock">In Stock</p> -->
 
@@ -35,9 +35,9 @@
               <li v-for="size in sizes">{{size}}</li>
             </ul>
             <div
-              v-for="variant in variants"
+              v-for="(variant,index) in variants"
               :key="variant.id"
-              @mouseover="updateImage(variant.image)"
+              @mouseover="updateVariant(index)"
               class="color-circle"
               :style="{backgroundColor:variant.color}"
             ></div>
