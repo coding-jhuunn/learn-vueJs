@@ -13,8 +13,9 @@
 
 <script setup>
 import { ref } from "vue";
+// ref = varName.value
 import ListItem from "./components/ListItem.vue";
-
+// you can use import comp like this in script setup
 const arr = ref([
   { id: 0, msg: "hello world" },
   { id: 1, msg: "message2" },
